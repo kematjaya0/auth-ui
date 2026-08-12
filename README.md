@@ -21,7 +21,7 @@ npm install react-hook-form @hookform/resolvers zod @kematjaya/bootstrap-ui-kit
 
 ```ts
 // src/config/auth.ts
-import { defineAuthConfig } from '@kematjaya/auth-ui';
+import { defineAuthConfig } from '@kematjaya/auth-ui/config';
 
 export const authConfig = defineAuthConfig({
   backendBaseUrl: process.env.API_INTERNAL_URL ?? 'http://127.0.0.1:8000',

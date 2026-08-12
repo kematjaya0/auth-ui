@@ -1,8 +1,7 @@
-export {
-  defineAuthConfig,
-  type AuthConfig,
-  type DefineAuthConfigInput
-} from './config';
+// `defineAuthConfig`/`AuthConfig` are intentionally NOT re-exported here —
+// this entry point also bundles the client components below, and importing
+// config from here would pull `react-hook-form` into edge/middleware/server
+// bundles that only need config. Import config from '@kematjaya/auth-ui/config'.
 export type { Problem, TokenPair, UserProfile } from './types';
 export {
   authSchema,
