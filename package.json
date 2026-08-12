@@ -49,23 +49,28 @@
     "prepublishOnly": "npm run typecheck && npm run test && npm run build"
   },
   "peerDependencies": {
+    "@hookform/resolvers": ">=3",
+    "@kematjaya/bootstrap-ui-kit": ">=0.1",
     "next": ">=16",
     "react": ">=19",
     "react-dom": ">=19",
     "react-hook-form": ">=7",
-    "@hookform/resolvers": ">=3",
-    "zod": ">=4",
-    "@kematjaya/bootstrap-ui-kit": ">=0.1"
+    "zod": ">=4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@hookform/resolvers": "^5.2.2",
     "@kematjaya/bootstrap-ui-kit": "^0.1.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^24.10.4",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
+    "jsdom": "^27.3.0",
     "next": "16.2.12",
     "prettier": "^3.7.4",
     "react": "^19.2.3",

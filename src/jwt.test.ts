@@ -3,7 +3,11 @@ import { decodeJwtRoles } from './jwt';
 
 function fakeJwt(payload: Record<string, unknown>): string {
   const base64url = (input: string) =>
-    Buffer.from(input).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    Buffer.from(input)
+      .toString('base64')
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
   return `${base64url(JSON.stringify({ alg: 'none' }))}.${base64url(JSON.stringify(payload))}.sig`;
 }
 
