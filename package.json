@@ -1,6 +1,6 @@
 {
   "name": "@kematjaya/auth-ui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "JWT auth UI (login, register, profile, change password, session/proxy guards) for Next.js App Router projects backed by kematjaya/auth-bundle.",
   "license": "MIT",
   "type": "module",

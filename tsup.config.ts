@@ -1,4 +1,25 @@
+import { readFileSync, writeFileSync } from 'node:fs';
 import { defineConfig } from 'tsup';
+
+// esbuild/tsup drop 'use client' directives when bundling — it re-emits the
+// merged module graph without preserving per-source-file directive
+// prologues. `index`/`pages` are entirely client components, so Next.js's
+// RSC compiler must see the banner as the literal first line of the output
+// or it treats them as server-importable and resolves react-hook-form
+// against its restricted "react-server" export condition (no useForm).
+const CLIENT_ONLY_ENTRIES = ['index', 'pages'];
+
+function prependUseClient(): void {
+  for (const name of CLIENT_ONLY_ENTRIES) {
+    for (const ext of ['js', 'cjs']) {
+      const path = `dist/${name}.${ext}`;
+      const contents = readFileSync(path, 'utf8');
+      if (!contents.startsWith("'use client'")) {
+        writeFileSync(path, `'use client';\n${contents}`);
+      }
+    }
+  }
+}
 
 export default defineConfig({
   entry: {
@@ -28,5 +49,8 @@ export default defineConfig({
     '@hookform/resolvers',
     'zod',
     '@kematjaya/bootstrap-ui-kit'
-  ]
+  ],
+  onSuccess: async () => {
+    prependUseClient();
+  }
 });
