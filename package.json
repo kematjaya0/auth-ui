@@ -1,0 +1,80 @@
+{
+  "name": "@kematjaya/auth-ui",
+  "version": "0.1.0",
+  "description": "JWT auth UI (login, register, profile, change password, session/proxy guards) for Next.js App Router projects backed by kematjaya/auth-bundle.",
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./routes": {
+      "types": "./dist/routes.d.ts",
+      "import": "./dist/routes.js",
+      "require": "./dist/routes.cjs"
+    },
+    "./pages": {
+      "types": "./dist/pages.d.ts",
+      "import": "./dist/pages.js",
+      "require": "./dist/pages.cjs"
+    },
+    "./proxy": {
+      "types": "./dist/proxy.d.ts",
+      "import": "./dist/proxy.js",
+      "require": "./dist/proxy.cjs"
+    },
+    "./session": {
+      "types": "./dist/session.d.ts",
+      "import": "./dist/session.js",
+      "require": "./dist/session.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "peerDependencies": {
+    "next": ">=16",
+    "react": ">=19",
+    "react-dom": ">=19",
+    "react-hook-form": ">=7",
+    "@hookform/resolvers": ">=3",
+    "zod": ">=4",
+    "@kematjaya/bootstrap-ui-kit": ">=0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@hookform/resolvers": "^5.2.2",
+    "@kematjaya/bootstrap-ui-kit": "^0.1.0",
+    "@types/node": "^24.10.4",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "next": "16.2.12",
+    "prettier": "^3.7.4",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-hook-form": "^7.68.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.47.1",
+    "vitest": "^4.0.15",
+    "zod": "^4.2.1"
+  }
+}
